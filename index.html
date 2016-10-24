@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Part A</title>
+
+
+</head>
+<body>
+<p>
+  Part A - Use the button below to generate a payroll report.
+</p>
+<p>
+  <a href="guess.html">Part B - Guessing Game</a>
+</p>
+<p>
+  <a href="puzzle.html">Part C - Puzzle</a>
+</p>
+<hr>
+<button onclick="payroll()">Generate Payroll Report</button>
+<h1>Payroll Report</h1>
+<table id="employees">
+  <tr>
+    <th>
+      Employee
+    </th>
+    <th>
+      Num of Hours
+    </th>
+    <th>
+      Pay
+    </th>
+  </tr>
+
+</table>
+
+<script type="text/javascript">
+  function payroll() {
+    var hours = 0;
+    var x = 1;
+    var grossPay = 0;
+    while(hours != -1) {
+      var pay = 0;
+      var overtime = 0;
+      var overtimeHours = 0;
+      var hours = prompt("Please enter employee " + x + " hours (-1 to quit):");
+      if (hours <= 40 && x != -1) {
+        pay = hours * 15;
+      }
+      else if (hours >= 40) {
+        overtimeHours = hours - 40;
+        overtime = overtimeHours * 22.5;
+        pay = 40 * 15;
+        pay += overtime;
+      }
+      if (hours != -1) {
+        var nodeTR = document.createElement("TR");
+        var nodeEmployee = document.createElement("TD");
+        var nodeHours = document.createElement("TD");
+        var nodePay = document.createElement("TD");
+        var textNodeEmployee = document.createTextNode(x);
+        var textNodeHours = document.createTextNode(hours);
+        var textNodePay = document.createTextNode(pay);
+        nodeTR.appendChild(nodeEmployee);
+        nodeTR.appendChild(nodeHours);
+        nodeTR.appendChild(nodePay);
+        nodeEmployee.appendChild(textNodeEmployee);
+        nodeHours.appendChild(textNodeHours);
+        nodePay.appendChild(textNodePay);
+        document.getElementById('employees').appendChild(nodeTR);
+        x++;
+      }
+      grossPay+=pay;
+    }
+    var nodeGrossPay = document.createElement("h2");
+    var textNodeGrossPay = document.createTextNode("Gross Pay: $" + grossPay);
+    nodeGrossPay.appendChild(textNodeGrossPay);
+    document.getElementById('employees').appendChild(nodeGrossPay);
+  }
+</script>
+</body>
+</html>
