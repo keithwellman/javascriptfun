@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Part B</title>
+</head>
+<body>
+<p>
+  <a href="index.html">Part A - Generate a payroll report.</a>
+</p>
+<p>
+  <a href="guess.html">Part B - Guessing Game</a>
+</p>
+<p>
+  Part C - Puzzle
+</p>
+<hr>
+<h1>Puzzle Guess</h1>
+<p>
+  Rules: First select the number of picture sets (8, 10, or 12) and a difficulty in seconds (3, 5, 8). You will have that number of seconds to memorize the puzzle before the pictures are replaced with numbers. Your goal is to find the matching pairs before the time runs out.
+</p>
+<p>
+  Select Size of Board (picture pairs):
+  <button onclick="drawBoard(8)">8 Pairs</button>
+  <button onclick="drawBoard(10)">10 Pairs</button>
+  <button onclick="drawBoard(12)">12 Pairs</button>
+</p>
+<p>
+  Select Difficulty (amount of time to memorize images):
+  <button onclick="difficulty(3)">3 Seconds</button>
+  <button onclick="difficulty(5)">5 Seconds</button>
+  <button onclick="difficulty(8)">8 Seconds</button>
+</p>
+<p>
+  <button onclick="start()">Start</button>
+</p>
+<p>
+  Time remaining: <span id="timer"></span> seconds
+</p>
+<p id="memorize">
+
+</p>
+<div id="tablearea">
+
+</div>
+
+
+<script src="puzzle.js"></script>
+</body>
+</html>
